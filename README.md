@@ -10,7 +10,6 @@ TYPO3 Extbase/Fluid-Extension für die Anzeige von Kursen aus dem SPI-Orientieru
 
 ```bash
 composer req blx/wlp-prospi:@dev
-# oder Extension-Ordner nach typo3conf/ext/wlp_prospi kopieren
 ```
 
 Plugin **WLP ProSPI: Liste** auf einer Seite einfügen.  
