@@ -1,0 +1,24 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  Blx\WlpProspi\:
+    resource: '../Classes/*'
+    exclude:
+      - '../Classes/Domain/Model/*'
+      - '../Classes/Controller/*'
+
+  Blx\WlpProspi\Controller\:
+    resource: '../Classes/Controller/*'
+    public: true
+    tags: ['controller.service_arguments']
+
+  Blx\WlpProspi\Service\ApiBaseUrlProvider:
+    public: true
+
+  Blx\WlpProspi\Service\ProspiApiClient:
+    arguments:
+      $baseUrl: '@=service("Blx\\WlpProspi\\Service\\ApiBaseUrlProvider").get()'
+      $timeout: 10

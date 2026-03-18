@@ -1,0 +1,2 @@
+# cat=API/enable/10; type=string; label=API-Basis-URL (Orientierungsplan)
+apiBaseUrl = https://prospi.intevation.de/orientierungsplan/trainercourses

@@ -1,0 +1,19 @@
+
+config.concatenateCss = 0
+config.compressCss = 0
+
+page.includeCSS {
+  wlpProspi = EXT:wlp-prospi/Resources/Public/Css/prospi.css
+  wlpProspi.media = all
+  wlpProspi.priority = 100
+}
+plugin.tx_wlpprospi {
+  view {
+    templateRootPaths.10 = EXT:wlp-prospi/Resources/Private/Templates/
+    partialRootPaths.10  = EXT:wlp-prospi/Resources/Private/Partials/
+    layoutRootPaths.10   = EXT:wlp-prospi/Resources/Private/Layouts/
+  }
+  settings {
+    dateLocale = de_DE
+  }
+}

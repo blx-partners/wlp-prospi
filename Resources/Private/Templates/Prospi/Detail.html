@@ -1,0 +1,78 @@
+<f:layout name="Default" />
+
+<f:section name="Main">
+  <style>
+    .scd .card { border:1px solid #e5e7eb; border-radius:.75rem; padding:1rem; background:#fff; }
+    .scd .badge { display:inline-block; font-size:.825rem; padding:.15rem .5rem; border-radius:999px; background:#eef2ff; }
+    .scd .muted { color:#6b7280; }
+    .scd .btn { border:1px solid #d1d5db; background:#111827; color:#fff; padding:.55rem .9rem; border-radius:.5rem; }
+    .scd .btn.secondary{ background:#fff; color:#111827;}
+  </style>
+
+  <div class="scd">
+    <p><f:link.action class="btn secondary" action="list" controller="Prospi" pluginName="List" extensionName="WlpProspi">← Zurück zur Liste</f:link.action></p>
+
+    <div class="card">
+      <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
+        <span class="badge">{course.kurstyp}</span>
+        <f:for each="{course.modes}" as="m"><span class="badge">{m}</span></f:for>
+      </div>
+
+      <p class="muted" style="margin:.5rem 0;">
+        Hinweis: <strong>Offen</strong>: Der angebotene Kurs kann von jeder Person gebucht werden. <strong>Geschlossen</strong>: Der angebotene Kurs ist für eine spezifische Gruppe vorgesehen.
+      </p>
+
+      <h1 style="margin:.5rem 0 0;">{course.name}<f:if condition="{course.nummer}"> ({course.nummer})</f:if></h1>
+      <p class="muted">{course.trainer}<f:if condition="{course.trainerFunktion}"> – {course.trainerFunktion}</f:if></p>
+
+      <p><strong>Zeitraum:</strong> {course.von} – {course.bis}</p>
+      <p><strong>Ort:</strong>
+        <f:if condition="{course.plzDisplay}">
+          <f:then>{course.plzDisplay}</f:then>
+          <f:else>
+            <f:if condition="{course.plz}">
+              <f:then>{course.plz}<f:if condition="{course.ort}"> {course.ort}</f:if></f:then>
+              <f:else>
+                <f:if condition="{course.plzRaw}">
+                  <f:then>{course.plzRaw}<f:if condition="{course.ort}"> {course.ort}</f:if></f:then>
+                  <f:else>{course.ort}</f:else>
+                </f:if>
+              </f:else>
+            </f:if>
+          </f:else>
+        </f:if>
+      </p>
+      <f:if condition="{course.kurstyp} != 'CLOSED'">
+        <p><strong>Freie Plätze:</strong>
+          <f:if condition="{course.freeSlots} || {course.freeSlots} == 0">
+            <f:then>{course.freeSlots}</f:then>
+            <f:else>–</f:else>
+          </f:if>
+        </p>
+      </f:if>
+
+      <f:if condition="{course.beschreibung}">
+        <h2>Beschreibung</h2>
+        <p>{course.beschreibung}</p>
+      </f:if>
+
+      <h2>Termine</h2>
+      <ul>
+        <f:for each="{course.termine}" as="t">
+          <li>{t.termin} – {t.uhrzeit} – <strong>{t.typ}</strong><f:if condition="{t.ort}"> – {t.ort}</f:if></li>
+        </f:for>
+      </ul>
+
+      <p>
+        <f:if condition="{course.bookingUrl}">
+          <a class="btn" href="{course.bookingUrl}" target="_blank" rel="noopener">Anmeldung</a>
+        <f:else>
+          <button class="btn" disabled title="Keine externe Anmeldung verfügbar">Anmeldung</button>
+        </f:else>
+        </f:if>
+      </p>
+
+      <p><f:link.action class="btn secondary" action="list" controller="Prospi" pluginName="List" extensionName="WlpProspi">← Zurück zur Liste</f:link.action></p>
+    </div>
+  </div>
+</f:section>
