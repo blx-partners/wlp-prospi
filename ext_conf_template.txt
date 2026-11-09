@@ -1,2 +1,8 @@
-# cat=API/enable/10; type=string; label=API-Basis-URL (Orientierungsplan)
+# cat=API/enable/10; type=string; label=LLL:EXT:wlp_prospi/Resources/Private/Language/locallang_db.xlf:config.apiBaseUrl
 apiBaseUrl = https://www.spi-monitoring.de/orientierungsplan/trainercourses
+
+# cat=API/enable/20; type=int+; label=LLL:EXT:wlp_prospi/Resources/Private/Language/locallang_db.xlf:config.cacheLifetime
+cacheLifetime = 900
+
+# cat=API/enable/30; type=int+; label=LLL:EXT:wlp_prospi/Resources/Private/Language/locallang_db.xlf:config.timeout
+timeout = 10

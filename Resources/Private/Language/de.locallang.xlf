@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" target-language="de" datatype="plaintext" original="EXT:wlp_prospi/Resources/Private/Language/locallang.xlf" date="2026-11-09T00:00:00Z" product-name="wlp_prospi">
+		<header/>
+		<body>
+			<trans-unit id="filter.mode" approved="yes">
+				<source>Format</source>
+				<target>Format</target>
+			</trans-unit>
+			<trans-unit id="filter.kurstyp" approved="yes">
+				<source>Type</source>
+				<target>Typ</target>
+			</trans-unit>
+			<trans-unit id="filter.trainer" approved="yes">
+				<source>Course instructor</source>
+				<target>Kursleitung</target>
+			</trans-unit>
+			<trans-unit id="filter.trainer.placeholder" approved="yes">
+				<source>Name…</source>
+				<target>Name…</target>
+			</trans-unit>
+			<trans-unit id="filter.city" approved="yes">
+				<source>Location</source>
+				<target>Ort</target>
+			</trans-unit>
+			<trans-unit id="filter.city.placeholder" approved="yes">
+				<source>e.g. Freiburg</source>
+				<target>z. B. Freiburg</target>
+			</trans-unit>
+			<trans-unit id="filter.plz" approved="yes">
+				<source>Postcode</source>
+				<target>PLZ</target>
+			</trans-unit>
+			<trans-unit id="filter.plz.placeholder" approved="yes">
+				<source>12345</source>
+				<target>12345</target>
+			</trans-unit>
+			<trans-unit id="filter.from" approved="yes">
+				<source>Period from</source>
+				<target>Zeitraum von</target>
+			</trans-unit>
+			<trans-unit id="filter.to" approved="yes">
+				<source>Period to</source>
+				<target>Zeitraum bis</target>
+			</trans-unit>
+			<trans-unit id="filter.topic" approved="yes">
+				<source>Content/focus</source>
+				<target>Inhalt/Schwerpunkt</target>
+			</trans-unit>
+			<trans-unit id="filter.termCount" approved="yes">
+				<source>Sessions</source>
+				<target>Termine</target>
+			</trans-unit>
+			<trans-unit id="filter.free" approved="yes">
+				<source>only courses with free places</source>
+				<target>nur freie Plätze</target>
+			</trans-unit>
+			<trans-unit id="filter.all" approved="yes">
+				<source>All</source>
+				<target>Alle</target>
+			</trans-unit>
+			<trans-unit id="filter.submit" approved="yes">
+				<source>Filter</source>
+				<target>Filtern</target>
+			</trans-unit>
+			<trans-unit id="filter.reset" approved="yes">
+				<source>Reset</source>
+				<target>Zurücksetzen</target>
+			</trans-unit>
+			<trans-unit id="filter.active" approved="yes">
+				<source>Active:</source>
+				<target>Aktiv:</target>
+			</trans-unit>
+			<trans-unit id="chip.mode" approved="yes">
+				<source>Format</source>
+				<target>Format</target>
+			</trans-unit>
+			<trans-unit id="chip.mode.remove" approved="yes">
+				<source>Reset format filter</source>
+				<target>Filter Format zurücksetzen</target>
+			</trans-unit>
+			<trans-unit id="chip.kurstyp" approved="yes">
+				<source>Type</source>
+				<target>Typ</target>
+			</trans-unit>
+			<trans-unit id="chip.kurstyp.remove" approved="yes">
+				<source>Reset type filter</source>
+				<target>Filter Typ zurücksetzen</target>
+			</trans-unit>
+			<trans-unit id="chip.trainer" approved="yes">
+				<source>Instructor</source>
+				<target>Leitung</target>
+			</trans-unit>
+			<trans-unit id="chip.trainer.remove" approved="yes">
+				<source>Reset instructor filter</source>
+				<target>Filter Leitung zurücksetzen</target>
+			</trans-unit>
+			<trans-unit id="chip.city" approved="yes">
+				<source>Location</source>
+				<target>Ort</target>
+			</trans-unit>
+			<trans-unit id="chip.city.remove" approved="yes">
+				<source>Reset location filter</source>
+				<target>Filter Ort zurücksetzen</target>
+			</trans-unit>
+			<trans-unit id="chip.plz" approved="yes">
+				<source>Postcode</source>
+				<target>PLZ</target>
+			</trans-unit>
+			<trans-unit id="chip.plz.remove" approved="yes">
+				<source>Reset postcode filter</source>
+				<target>Filter PLZ zurücksetzen</target>
+			</trans-unit>
+			<trans-unit id="chip.from" approved="yes">
+				<source>from</source>
+				<target>von</target>
+			</trans-unit>
+			<trans-unit id="chip.from.remove" approved="yes">
+				<source>Reset start date filter</source>
+				<target>Filter von-Datum zurücksetzen</target>
+			</trans-unit>
+			<trans-unit id="chip.to" approved="yes">
+				<source>to</source>
+				<target>bis</target>
+			</trans-unit>
+			<trans-unit id="chip.to.remove" approved="yes">
+				<source>Reset end date filter</source>
+				<target>Filter bis-Datum zurücksetzen</target>
+			</trans-unit>
+			<trans-unit id="chip.topic" approved="yes">
+				<source>Topic</source>
+				<target>Thema</target>
+			</trans-unit>
+			<trans-unit id="chip.topic.remove" approved="yes">
+				<source>Reset topic filter</source>
+				<target>Filter Thema zurücksetzen</target>
+			</trans-unit>
+			<trans-unit id="chip.termCount" approved="yes">
+				<source>Sessions</source>
+				<target>Termine</target>
+			</trans-unit>
+			<trans-unit id="chip.termCount.remove" approved="yes">
+				<source>Reset sessions filter</source>
+				<target>Filter Termine zurücksetzen</target>
+			</trans-unit>
+			<trans-unit id="chip.free" approved="yes">
+				<source>Places</source>
+				<target>Plätze</target>
+			</trans-unit>
+			<trans-unit id="chip.free.value" approved="yes">
+				<source>available</source>
+				<target>frei</target>
+			</trans-unit>
+			<trans-unit id="chip.free.remove" approved="yes">
+				<source>Reset free places filter</source>
+				<target>Filter freie Plätze zurücksetzen</target>
+			</trans-unit>
+			<trans-unit id="mode.PRAESENZ" approved="yes">
+				<source>In person</source>
+				<target>Präsenz</target>
+			</trans-unit>
+			<trans-unit id="mode.HYBRID" approved="yes">
+				<source>In person + online</source>
+				<target>Präsenz + Online</target>
+			</trans-unit>
+			<trans-unit id="mode.ONLINE" approved="yes">
+				<source>Online</source>
+				<target>Online</target>
+			</trans-unit>
+			<trans-unit id="kurstyp.OPEN" approved="yes">
+				<source>Open</source>
+				<target>Offen</target>
+			</trans-unit>
+			<trans-unit id="kurstyp.CLOSED" approved="yes">
+				<source>Closed</source>
+				<target>Geschlossen</target>
+			</trans-unit>
+			<trans-unit id="termCount.one" approved="yes">
+				<source>1 session</source>
+				<target>1 Termin</target>
+			</trans-unit>
+			<trans-unit id="termCount.many" approved="yes">
+				<source>%d sessions</source>
+				<target>%d Termine</target>
+			</trans-unit>
+			<trans-unit id="hint.label" approved="yes">
+				<source>Note:</source>
+				<target>Hinweis:</target>
+			</trans-unit>
+			<trans-unit id="hint.open" approved="yes">
+				<source>The course can be booked by anyone.</source>
+				<target>Der angebotene Kurs kann von jeder Person gebucht werden.</target>
+			</trans-unit>
+			<trans-unit id="hint.closed" approved="yes">
+				<source>The course is intended for a specific group.</source>
+				<target>Der angebotene Kurs ist für eine spezifische Gruppe vorgesehen.</target>
+			</trans-unit>
+			<trans-unit id="results.found" approved="yes">
+				<source>courses found.</source>
+				<target>Kurse gefunden.</target>
+			</trans-unit>
+			<trans-unit id="results.empty" approved="yes">
+				<source>No courses found for the selected filters. Tip: remove filters one by one.</source>
+				<target>Keine Kurse für die gewählten Filter gefunden. Tipp: Filter schrittweise entfernen.</target>
+			</trans-unit>
+			<trans-unit id="card.fallbackTitle" approved="yes">
+				<source>Course</source>
+				<target>Kurs</target>
+			</trans-unit>
+			<trans-unit id="card.from" approved="yes">
+				<source>from</source>
+				<target>ab</target>
+			</trans-unit>
+			<trans-unit id="badge.course" approved="yes">
+				<source>Course</source>
+				<target>Kurs</target>
+			</trans-unit>
+			<trans-unit id="badge.freeSlots" approved="yes">
+				<source>Free places:</source>
+				<target>Freie Plätze:</target>
+			</trans-unit>
+			<trans-unit id="meta.trainer" approved="yes">
+				<source>Course instructor:</source>
+				<target>Kursleitung:</target>
+			</trans-unit>
+			<trans-unit id="meta.dates" approved="yes">
+				<source>Dates:</source>
+				<target>Termine:</target>
+			</trans-unit>
+			<trans-unit id="meta.format" approved="yes">
+				<source>Format:</source>
+				<target>Format:</target>
+			</trans-unit>
+			<trans-unit id="meta.time" approved="yes">
+				<source>Time:</source>
+				<target>Uhrzeit:</target>
+			</trans-unit>
+			<trans-unit id="meta.location" approved="yes">
+				<source>Location:</source>
+				<target>Ort:</target>
+			</trans-unit>
+			<trans-unit id="booking.label" approved="yes">
+				<source>Registration</source>
+				<target>Anmeldung</target>
+			</trans-unit>
+			<trans-unit id="booking.for" approved="yes">
+				<source>Registration for</source>
+				<target>Anmeldung für</target>
+			</trans-unit>
+			<trans-unit id="booking.unavailable" approved="yes">
+				<source>No external registration available</source>
+				<target>Keine externe Anmeldung verfügbar</target>
+			</trans-unit>
+			<trans-unit id="detail.back" approved="yes">
+				<source>Back to the list</source>
+				<target>Zurück zur Liste</target>
+			</trans-unit>
+			<trans-unit id="detail.period" approved="yes">
+				<source>Period:</source>
+				<target>Zeitraum:</target>
+			</trans-unit>
+			<trans-unit id="detail.location" approved="yes">
+				<source>Location:</source>
+				<target>Ort:</target>
+			</trans-unit>
+			<trans-unit id="detail.freeSlots" approved="yes">
+				<source>Free places:</source>
+				<target>Freie Plätze:</target>
+			</trans-unit>
+			<trans-unit id="detail.description" approved="yes">
+				<source>Description</source>
+				<target>Beschreibung</target>
+			</trans-unit>
+			<trans-unit id="detail.dates" approved="yes">
+				<source>Dates</source>
+				<target>Termine</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

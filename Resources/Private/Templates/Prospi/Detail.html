@@ -1,78 +1,63 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:layout name="Default" />
 
 <f:section name="Main">
-  <style>
-    .scd .card { border:1px solid #e5e7eb; border-radius:.75rem; padding:1rem; background:#fff; }
-    .scd .badge { display:inline-block; font-size:.825rem; padding:.15rem .5rem; border-radius:999px; background:#eef2ff; }
-    .scd .muted { color:#6b7280; }
-    .scd .btn { border:1px solid #d1d5db; background:#111827; color:#fff; padding:.55rem .9rem; border-radius:.5rem; }
-    .scd .btn.secondary{ background:#fff; color:#111827;}
-  </style>
+    <p><f:render section="BackLink" /></p>
 
-  <div class="scd">
-    <p><f:link.action class="btn secondary" action="list" controller="Prospi" pluginName="List" extensionName="WlpProspi">← Zurück zur Liste</f:link.action></p>
+    <article class="prospi-detail">
+        <div class="prospi-detail__badges">
+            <span class="prospi-badge"><f:translate key="kurstyp.{course.kurstyp}" default="{course.kurstyp}" /></span>
+            <f:for each="{course.modes}" as="mode">
+                <span class="prospi-badge"><f:translate key="mode.{mode}" default="{mode}" /></span>
+            </f:for>
+        </div>
 
-    <div class="card">
-      <div style="display:flex; gap:.5rem; flex-wrap:wrap;">
-        <span class="badge">{course.kurstyp}</span>
-        <f:for each="{course.modes}" as="m"><span class="badge">{m}</span></f:for>
-      </div>
+        <f:render partial="Course/TypeHint" />
 
-      <p class="muted" style="margin:.5rem 0;">
-        Hinweis: <strong>Offen</strong>: Der angebotene Kurs kann von jeder Person gebucht werden. <strong>Geschlossen</strong>: Der angebotene Kurs ist für eine spezifische Gruppe vorgesehen.
-      </p>
+        <h1 class="prospi-detail__title">{course.name}<f:if condition="{course.nummer}"> ({course.nummer})</f:if></h1>
+        <p class="prospi-detail__subtitle">{course.trainer}<f:if condition="{course.trainerFunktion}"> – {course.trainerFunktion}</f:if></p>
 
-      <h1 style="margin:.5rem 0 0;">{course.name}<f:if condition="{course.nummer}"> ({course.nummer})</f:if></h1>
-      <p class="muted">{course.trainer}<f:if condition="{course.trainerFunktion}"> – {course.trainerFunktion}</f:if></p>
-
-      <p><strong>Zeitraum:</strong> {course.von} – {course.bis}</p>
-      <p><strong>Ort:</strong>
+        <p><strong><f:translate key="detail.period" /></strong> {course.von} – {course.bis}</p>
         <f:if condition="{course.plzDisplay}">
-          <f:then>{course.plzDisplay}</f:then>
-          <f:else>
-            <f:if condition="{course.plz}">
-              <f:then>{course.plz}<f:if condition="{course.ort}"> {course.ort}</f:if></f:then>
-              <f:else>
-                <f:if condition="{course.plzRaw}">
-                  <f:then>{course.plzRaw}<f:if condition="{course.ort}"> {course.ort}</f:if></f:then>
-                  <f:else>{course.ort}</f:else>
-                </f:if>
-              </f:else>
+            <p><strong><f:translate key="detail.location" /></strong> {course.plzDisplay}</p>
+        </f:if>
+        <f:if condition="{course.kurstyp} != 'CLOSED'">
+            <p><strong><f:translate key="detail.freeSlots" /></strong> <f:render partial="Course/FreeSlots" arguments="{course: course}" /></p>
+        </f:if>
+
+        <f:if condition="{course.beschreibung}">
+            <h2><f:translate key="detail.description" /></h2>
+            <p>{course.beschreibung}</p>
+        </f:if>
+
+        <h2><f:translate key="detail.dates" /></h2>
+        <ul>
+            <f:for each="{course.termine}" as="termin">
+                <li>
+                    {termin.termin} – {termin.uhrzeit} –
+                    <strong><f:translate key="mode.{termin.typ}" default="{termin.typ}" /></strong><f:if condition="{termin.ort}"> – {termin.ort}</f:if>
+                </li>
+            </f:for>
+        </ul>
+
+        <p>
+            <f:if condition="{course.bookingUrl}">
+                <f:then>
+                    <a class="prospi-button" href="{course.bookingUrl}" target="_blank" rel="noopener"><f:translate key="booking.label" /></a>
+                </f:then>
+                <f:else>
+                    <button type="button" class="prospi-button" disabled="disabled" title="{f:translate(key: 'booking.unavailable')}"><f:translate key="booking.label" /></button>
+                </f:else>
             </f:if>
-          </f:else>
-        </f:if>
-      </p>
-      <f:if condition="{course.kurstyp} != 'CLOSED'">
-        <p><strong>Freie Plätze:</strong>
-          <f:if condition="{course.freeSlots} || {course.freeSlots} == 0">
-            <f:then>{course.freeSlots}</f:then>
-            <f:else>–</f:else>
-          </f:if>
         </p>
-      </f:if>
 
-      <f:if condition="{course.beschreibung}">
-        <h2>Beschreibung</h2>
-        <p>{course.beschreibung}</p>
-      </f:if>
-
-      <h2>Termine</h2>
-      <ul>
-        <f:for each="{course.termine}" as="t">
-          <li>{t.termin} – {t.uhrzeit} – <strong>{t.typ}</strong><f:if condition="{t.ort}"> – {t.ort}</f:if></li>
-        </f:for>
-      </ul>
-
-      <p>
-        <f:if condition="{course.bookingUrl}">
-          <a class="btn" href="{course.bookingUrl}" target="_blank" rel="noopener">Anmeldung</a>
-        <f:else>
-          <button class="btn" disabled title="Keine externe Anmeldung verfügbar">Anmeldung</button>
-        </f:else>
-        </f:if>
-      </p>
-
-      <p><f:link.action class="btn secondary" action="list" controller="Prospi" pluginName="List" extensionName="WlpProspi">← Zurück zur Liste</f:link.action></p>
-    </div>
-  </div>
+        <p><f:render section="BackLink" /></p>
+    </article>
 </f:section>
+
+<f:section name="BackLink">
+    <f:link.action action="list" class="prospi-button prospi-button--secondary">
+        <span aria-hidden="true">←</span> <f:translate key="detail.back" />
+    </f:link.action>
+</f:section>
+</html>
