@@ -1,0 +1,318 @@
+/*
+ * EXT:wlp_prospi – Kursliste ProSPI
+ * BEM-Block .prospi, Gestaltungswerte als Custom Properties (überschreibbar im Sitepackage).
+ */
+
+.prospi {
+  --prospi-color-text: inherit;
+  --prospi-color-muted: #6b7280;
+  --prospi-color-dark: #111827;
+  --prospi-color-surface: #fff;
+  --prospi-color-subtle: #f3f4f6;
+  --prospi-color-border: #d1d5db;
+  --prospi-color-frame: rgba(0, 0, 0, 0.175);
+  --prospi-color-accent: #fffc00;
+  --prospi-color-accent-text: #111;
+  --prospi-color-disabled: #e5e7eb;
+  --prospi-color-disabled-text: #4b5563;
+  --prospi-font-heading: BaWueSans, Arial, sans-serif;
+  --prospi-radius: 0.75rem;
+  --prospi-radius-control: 0.5rem;
+  --prospi-space: 1rem;
+}
+
+.prospi *,
+.prospi *::before,
+.prospi *::after {
+  box-sizing: border-box;
+}
+
+/* Rahmen-Box (Filter, Karte, Leermeldung) */
+.prospi-filter,
+.prospi-card,
+.prospi-empty,
+.prospi-detail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-wrap: break-word;
+  padding: var(--prospi-space);
+  border: 6px solid var(--prospi-color-frame);
+  border-radius: var(--prospi-radius);
+  background: var(--prospi-color-surface);
+}
+
+.prospi-detail {
+  border: 1px solid var(--prospi-color-disabled);
+}
+
+/* Filterformular */
+.prospi-filter__grid,
+.prospi-filter__dates {
+  display: grid;
+  gap: var(--prospi-space);
+}
+
+.prospi-filter__dates {
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (min-width: 768px) {
+  .prospi-filter__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.prospi-filter__label {
+  font-weight: 600;
+}
+
+.prospi-filter__control {
+  width: 100%;
+  padding: 0.55rem 0.6rem;
+  border: 1px solid var(--prospi-color-border);
+  border-radius: var(--prospi-radius-control);
+}
+
+/* Platzhalter in Höhe eines Labels, damit die Checkbox auf Feldhöhe steht */
+.prospi-filter__field--checkbox {
+  padding-top: 1.5rem;
+}
+
+.prospi-filter__checkbox {
+  font-weight: 500;
+}
+
+.prospi-filter__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.75rem;
+}
+
+.prospi-filter__active-label {
+  margin-left: 0.5rem;
+  color: var(--prospi-color-muted);
+}
+
+/* Buttons */
+.prospi-button {
+  display: inline-block;
+  min-width: 8rem;
+  padding: 0.55rem 0.9rem;
+  border: 1px solid var(--prospi-color-border);
+  border-radius: var(--prospi-radius-control);
+  background: var(--prospi-color-dark);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+}
+
+.prospi-button:hover,
+.prospi-button:focus {
+  color: #fff;
+  text-decoration: none;
+}
+
+.prospi-button:focus-visible {
+  outline: 3px solid var(--prospi-color-dark);
+  outline-offset: 2px;
+}
+
+.prospi-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.prospi-button--secondary,
+.prospi-button--secondary:hover,
+.prospi-button--secondary:focus {
+  background: var(--prospi-color-surface);
+  color: var(--prospi-color-dark);
+}
+
+/* Aktive Filter */
+.prospi-chip {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: var(--prospi-color-subtle);
+  font-size: 0.825rem;
+}
+
+.prospi-chip__label {
+  font-weight: 600;
+}
+
+.prospi-chip__remove {
+  position: relative;
+  right: -5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: var(--prospi-color-surface);
+  color: var(--prospi-color-muted);
+  line-height: 1;
+  cursor: pointer;
+}
+
+.prospi-chip__remove:hover,
+.prospi-chip__remove:focus-visible {
+  color: var(--prospi-color-dark);
+}
+
+/* Hinweise und Ergebniszeile */
+.prospi-hint {
+  margin: 1rem 0 0.25rem;
+  color: var(--prospi-color-muted);
+}
+
+.prospi-results {
+  margin: 0 0 0.25rem;
+  color: var(--prospi-color-muted);
+  font-size: 0.9rem;
+}
+
+/* Kartenliste */
+.prospi-list {
+  display: grid;
+  gap: var(--prospi-space);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@media (min-width: 768px) {
+  .prospi-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1200px) {
+  .prospi-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.prospi .prospi-card__title {
+  margin: 0 0 0.75rem;
+  color: inherit;
+  /* Die Site setzt für h2–h6 eine Serifenschrift mit !important (body.ffb h4 in font.css). */
+  font-family: var(--prospi-font-heading) !important;
+  font-size: 1.125rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.prospi-card__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.prospi-card__meta {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.prospi-card__meta-row {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0.35rem 0;
+  font-size: 0.95rem;
+}
+
+.prospi-card__meta-label {
+  margin: 0;
+  font-weight: 700;
+}
+
+.prospi-card__meta-value {
+  margin: 0 0 0 0.25rem;
+}
+
+.prospi-card__meta-item,
+.prospi-card__meta-sep {
+  display: inline-grid;
+  margin-right: 0.25rem;
+}
+
+.prospi-card__footer {
+  margin-top: 1rem;
+}
+
+/* Badges */
+.prospi-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  background: var(--prospi-color-accent);
+  color: var(--prospi-color-accent-text);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.prospi-tag--secondary {
+  font-weight: 500;
+}
+
+.prospi-tag--disabled {
+  background: var(--prospi-color-disabled);
+  color: var(--prospi-color-disabled-text);
+}
+
+/* Detailansicht */
+.prospi-detail__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.prospi-badge {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #eef2ff;
+  font-size: 0.825rem;
+}
+
+.prospi-detail__title {
+  margin: 0.5rem 0 0;
+}
+
+.prospi-detail__subtitle {
+  color: var(--prospi-color-muted);
+}
+
+/* Nur für Screenreader */
+.prospi-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

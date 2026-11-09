@@ -7,18 +7,13 @@ services:
   Blx\WlpProspi\:
     resource: '../Classes/*'
     exclude:
-      - '../Classes/Domain/Model/*'
-      - '../Classes/Controller/*'
+      - '../Classes/Domain/Filter/*'
 
-  Blx\WlpProspi\Controller\:
-    resource: '../Classes/Controller/*'
-    public: true
-    tags: ['controller.service_arguments']
-
-  Blx\WlpProspi\Service\ApiBaseUrlProvider:
-    public: true
+  cache.wlpprospi_api:
+    class: TYPO3\CMS\Core\Cache\Frontend\FrontendInterface
+    factory: ['@TYPO3\CMS\Core\Cache\CacheManager', 'getCache']
+    arguments: ['wlpprospi_api']
 
   Blx\WlpProspi\Service\ProspiApiClient:
     arguments:
-      $baseUrl: '@=service("Blx\\WlpProspi\\Service\\ApiBaseUrlProvider").get()'
-      $timeout: 10
+      $cache: '@cache.wlpprospi_api'

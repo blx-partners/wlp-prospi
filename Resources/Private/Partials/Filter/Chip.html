@@ -1,0 +1,11 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<span class="prospi-chip">
+    <b class="prospi-chip__label"><f:translate key="chip.{field}" /></b>
+    {value}
+    <button type="button" class="prospi-chip__remove" data-prospi-reset="{field}" aria-label="{f:translate(key: 'chip.{field}.remove')}">
+        <svg class="prospi-chip__icon" width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true" focusable="false">
+            <path d="M3 3l6 6M9 3L3 9" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+        </svg>
+    </button>
+</span>
+</html>

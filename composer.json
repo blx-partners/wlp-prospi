@@ -1,13 +1,22 @@
 {
   "name": "blx/wlp-prospi",
-  "description": "SPI Orientierungsplan courses integration (list + detail + filters) for TYPO3",
+  "description": "ProSPI: Kursliste des SPI-Orientierungsplans (Liste, Filter, Detail) für TYPO3",
   "type": "typo3-cms-extension",
   "license": "GPL-2.0-or-later",
+  "authors": [
+    {
+      "name": "Robert Kraemer",
+      "email": "robert.kraemer@blx.partners",
+      "role": "Developer"
+    }
+  ],
   "require": {
-    "php": "^8.1",
+    "php": "^8.2",
     "typo3/cms-core": "^13.4",
-    "guzzlehttp/guzzle": "^7.9",
-    "psr/http-client": "^1.0"
+    "typo3/cms-extbase": "^13.4",
+    "typo3/cms-fluid": "^13.4",
+    "typo3/cms-frontend": "^13.4",
+    "typo3/cms-install": "^13.4"
   },
   "autoload": {
     "psr-4": {
@@ -16,7 +25,7 @@
   },
   "extra": {
     "typo3/cms": {
-      "extension-key": "wlp-prospi"
+      "extension-key": "wlp_prospi"
     }
   }
 }

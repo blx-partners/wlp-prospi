@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:wlp_prospi/Resources/Private/Language/locallang.xlf" date="2026-11-09T00:00:00Z" product-name="wlp_prospi">
+		<header/>
+		<body>
+			<trans-unit id="filter.mode">
+				<source>Format</source>
+			</trans-unit>
+			<trans-unit id="filter.kurstyp">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="filter.trainer">
+				<source>Course instructor</source>
+			</trans-unit>
+			<trans-unit id="filter.trainer.placeholder">
+				<source>Name…</source>
+			</trans-unit>
+			<trans-unit id="filter.city">
+				<source>Location</source>
+			</trans-unit>
+			<trans-unit id="filter.city.placeholder">
+				<source>e.g. Freiburg</source>
+			</trans-unit>
+			<trans-unit id="filter.plz">
+				<source>Postcode</source>
+			</trans-unit>
+			<trans-unit id="filter.plz.placeholder">
+				<source>12345</source>
+			</trans-unit>
+			<trans-unit id="filter.from">
+				<source>Period from</source>
+			</trans-unit>
+			<trans-unit id="filter.to">
+				<source>Period to</source>
+			</trans-unit>
+			<trans-unit id="filter.topic">
+				<source>Content/focus</source>
+			</trans-unit>
+			<trans-unit id="filter.termCount">
+				<source>Sessions</source>
+			</trans-unit>
+			<trans-unit id="filter.free">
+				<source>only courses with free places</source>
+			</trans-unit>
+			<trans-unit id="filter.all">
+				<source>All</source>
+			</trans-unit>
+			<trans-unit id="filter.submit">
+				<source>Filter</source>
+			</trans-unit>
+			<trans-unit id="filter.reset">
+				<source>Reset</source>
+			</trans-unit>
+			<trans-unit id="filter.active">
+				<source>Active:</source>
+			</trans-unit>
+			<trans-unit id="chip.mode">
+				<source>Format</source>
+			</trans-unit>
+			<trans-unit id="chip.mode.remove">
+				<source>Reset format filter</source>
+			</trans-unit>
+			<trans-unit id="chip.kurstyp">
+				<source>Type</source>
+			</trans-unit>
+			<trans-unit id="chip.kurstyp.remove">
+				<source>Reset type filter</source>
+			</trans-unit>
+			<trans-unit id="chip.trainer">
+				<source>Instructor</source>
+			</trans-unit>
+			<trans-unit id="chip.trainer.remove">
+				<source>Reset instructor filter</source>
+			</trans-unit>
+			<trans-unit id="chip.city">
+				<source>Location</source>
+			</trans-unit>
+			<trans-unit id="chip.city.remove">
+				<source>Reset location filter</source>
+			</trans-unit>
+			<trans-unit id="chip.plz">
+				<source>Postcode</source>
+			</trans-unit>
+			<trans-unit id="chip.plz.remove">
+				<source>Reset postcode filter</source>
+			</trans-unit>
+			<trans-unit id="chip.from">
+				<source>from</source>
+			</trans-unit>
+			<trans-unit id="chip.from.remove">
+				<source>Reset start date filter</source>
+			</trans-unit>
+			<trans-unit id="chip.to">
+				<source>to</source>
+			</trans-unit>
+			<trans-unit id="chip.to.remove">
+				<source>Reset end date filter</source>
+			</trans-unit>
+			<trans-unit id="chip.topic">
+				<source>Topic</source>
+			</trans-unit>
+			<trans-unit id="chip.topic.remove">
+				<source>Reset topic filter</source>
+			</trans-unit>
+			<trans-unit id="chip.termCount">
+				<source>Sessions</source>
+			</trans-unit>
+			<trans-unit id="chip.termCount.remove">
+				<source>Reset sessions filter</source>
+			</trans-unit>
+			<trans-unit id="chip.free">
+				<source>Places</source>
+			</trans-unit>
+			<trans-unit id="chip.free.value">
+				<source>available</source>
+			</trans-unit>
+			<trans-unit id="chip.free.remove">
+				<source>Reset free places filter</source>
+			</trans-unit>
+			<trans-unit id="mode.PRAESENZ">
+				<source>In person</source>
+			</trans-unit>
+			<trans-unit id="mode.HYBRID">
+				<source>In person + online</source>
+			</trans-unit>
+			<trans-unit id="mode.ONLINE">
+				<source>Online</source>
+			</trans-unit>
+			<trans-unit id="kurstyp.OPEN">
+				<source>Open</source>
+			</trans-unit>
+			<trans-unit id="kurstyp.CLOSED">
+				<source>Closed</source>
+			</trans-unit>
+			<trans-unit id="termCount.one">
+				<source>1 session</source>
+			</trans-unit>
+			<trans-unit id="termCount.many">
+				<source>%d sessions</source>
+			</trans-unit>
+			<trans-unit id="hint.label">
+				<source>Note:</source>
+			</trans-unit>
+			<trans-unit id="hint.open">
+				<source>The course can be booked by anyone.</source>
+			</trans-unit>
+			<trans-unit id="hint.closed">
+				<source>The course is intended for a specific group.</source>
+			</trans-unit>
+			<trans-unit id="results.found">
+				<source>courses found.</source>
+			</trans-unit>
+			<trans-unit id="results.empty">
+				<source>No courses found for the selected filters. Tip: remove filters one by one.</source>
+			</trans-unit>
+			<trans-unit id="card.fallbackTitle">
+				<source>Course</source>
+			</trans-unit>
+			<trans-unit id="card.from">
+				<source>from</source>
+			</trans-unit>
+			<trans-unit id="badge.course">
+				<source>Course</source>
+			</trans-unit>
+			<trans-unit id="badge.freeSlots">
+				<source>Free places:</source>
+			</trans-unit>
+			<trans-unit id="meta.trainer">
+				<source>Course instructor:</source>
+			</trans-unit>
+			<trans-unit id="meta.dates">
+				<source>Dates:</source>
+			</trans-unit>
+			<trans-unit id="meta.format">
+				<source>Format:</source>
+			</trans-unit>
+			<trans-unit id="meta.time">
+				<source>Time:</source>
+			</trans-unit>
+			<trans-unit id="meta.location">
+				<source>Location:</source>
+			</trans-unit>
+			<trans-unit id="booking.label">
+				<source>Registration</source>
+			</trans-unit>
+			<trans-unit id="booking.for">
+				<source>Registration for</source>
+			</trans-unit>
+			<trans-unit id="booking.unavailable">
+				<source>No external registration available</source>
+			</trans-unit>
+			<trans-unit id="detail.back">
+				<source>Back to the list</source>
+			</trans-unit>
+			<trans-unit id="detail.period">
+				<source>Period:</source>
+			</trans-unit>
+			<trans-unit id="detail.location">
+				<source>Location:</source>
+			</trans-unit>
+			<trans-unit id="detail.freeSlots">
+				<source>Free places:</source>
+			</trans-unit>
+			<trans-unit id="detail.description">
+				<source>Description</source>
+			</trans-unit>
+			<trans-unit id="detail.dates">
+				<source>Dates</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

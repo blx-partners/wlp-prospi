@@ -1,0 +1,130 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:form action="list" method="get" id="prospi-filter" class="prospi-filter" data-prospi-filter="1" data-prospi-scroll="{f:if(condition: hasActiveFilters, then: 'true', else: 'false')}">
+    <div class="prospi-filter__grid">
+        <div class="prospi-filter__field">
+            <label class="prospi-filter__label" for="prospi-filter-mode"><f:translate key="filter.mode" /></label>
+            <f:form.select id="prospi-filter-mode" name="mode" value="{filters.mode}" class="prospi-filter__control">
+                <f:form.select.option value=""><f:translate key="filter.all" /></f:form.select.option>
+                <f:for each="{0: 'PRAESENZ', 1: 'HYBRID', 2: 'ONLINE'}" as="mode">
+                    <f:form.select.option value="{mode}"><f:translate key="mode.{mode}" /></f:form.select.option>
+                </f:for>
+            </f:form.select>
+        </div>
+
+        <div class="prospi-filter__field">
+            <label class="prospi-filter__label" for="prospi-filter-kurstyp"><f:translate key="filter.kurstyp" /></label>
+            <f:form.select id="prospi-filter-kurstyp" name="kurstyp" value="{filters.kurstyp}" class="prospi-filter__control">
+                <f:form.select.option value=""><f:translate key="filter.all" /></f:form.select.option>
+                <f:for each="{0: 'OPEN', 1: 'CLOSED'}" as="type">
+                    <f:form.select.option value="{type}"><f:translate key="kurstyp.{type}" /></f:form.select.option>
+                </f:for>
+            </f:form.select>
+        </div>
+
+        <div class="prospi-filter__field">
+            <label class="prospi-filter__label" for="prospi-filter-trainer"><f:translate key="filter.trainer" /></label>
+            <f:form.textfield id="prospi-filter-trainer" name="trainer" value="{filters.trainer}" class="prospi-filter__control"
+                placeholder="{f:translate(key: 'filter.trainer.placeholder')}" list="prospi-filter-trainer-list" />
+            <datalist id="prospi-filter-trainer-list">
+                <f:for each="{options.trainers}" as="trainer"><option value="{trainer}"></option></f:for>
+            </datalist>
+        </div>
+
+        <div class="prospi-filter__field">
+            <label class="prospi-filter__label" for="prospi-filter-city"><f:translate key="filter.city" /></label>
+            <f:form.textfield id="prospi-filter-city" name="city" value="{filters.city}" class="prospi-filter__control"
+                placeholder="{f:translate(key: 'filter.city.placeholder')}" list="prospi-filter-city-list" />
+            <datalist id="prospi-filter-city-list">
+                <f:for each="{options.cities}" as="city"><option value="{city}"></option></f:for>
+            </datalist>
+        </div>
+
+        <div class="prospi-filter__field">
+            <label class="prospi-filter__label" for="prospi-filter-plz"><f:translate key="filter.plz" /></label>
+            <f:form.textfield id="prospi-filter-plz" name="plz" value="{filters.plz}" class="prospi-filter__control"
+                placeholder="{f:translate(key: 'filter.plz.placeholder')}" inputmode="numeric" maxlength="5" list="prospi-filter-plz-list" />
+            <datalist id="prospi-filter-plz-list">
+                <f:for each="{options.zips}" as="zip"><option value="{zip}"></option></f:for>
+            </datalist>
+        </div>
+
+        <div class="prospi-filter__dates">
+            <div class="prospi-filter__field">
+                <label class="prospi-filter__label" for="prospi-filter-from"><f:translate key="filter.from" /></label>
+                <f:form.textfield id="prospi-filter-from" name="from" value="{filters.from}" type="date" class="prospi-filter__control" />
+            </div>
+            <div class="prospi-filter__field">
+                <label class="prospi-filter__label" for="prospi-filter-to"><f:translate key="filter.to" /></label>
+                <f:form.textfield id="prospi-filter-to" name="to" value="{filters.to}" type="date" class="prospi-filter__control" />
+            </div>
+        </div>
+
+        <div class="prospi-filter__field">
+            <label class="prospi-filter__label" for="prospi-filter-topic"><f:translate key="filter.topic" /></label>
+            <f:form.select id="prospi-filter-topic" name="topic" value="{filters.topic}" class="prospi-filter__control">
+                <f:form.select.option value=""><f:translate key="filter.all" /></f:form.select.option>
+                <f:for each="{options.topics}" as="topic">
+                    <f:form.select.option value="{topic}">{topic}</f:form.select.option>
+                </f:for>
+            </f:form.select>
+        </div>
+
+        <div class="prospi-filter__field">
+            <label class="prospi-filter__label" for="prospi-filter-termCount"><f:translate key="filter.termCount" /></label>
+            <f:form.select id="prospi-filter-termCount" name="termCount" value="{filters.termCount}" class="prospi-filter__control">
+                <f:form.select.option value=""><f:translate key="filter.all" /></f:form.select.option>
+                <f:for each="{options.termCounts}" as="count">
+                    <f:form.select.option value="{count}"><f:render partial="Course/TermCount" arguments="{count: count}" /></f:form.select.option>
+                </f:for>
+            </f:form.select>
+        </div>
+
+        <div class="prospi-filter__field prospi-filter__field--checkbox">
+            <label class="prospi-filter__checkbox">
+                <f:form.checkbox name="free" value="1" checked="{filters.free} == '1'" />
+                <f:translate key="filter.free" />
+            </label>
+        </div>
+    </div>
+
+    <div class="prospi-filter__actions">
+        <f:form.submit class="prospi-button" value="{f:translate(key: 'filter.submit')}" />
+        <f:link.action action="list" class="prospi-button prospi-button--secondary"><f:translate key="filter.reset" /></f:link.action>
+
+        <f:if condition="{hasActiveFilters}">
+            <span class="prospi-filter__active-label"><f:translate key="filter.active" /></span>
+            <f:if condition="{filters.mode}">
+                <f:render partial="Filter/Chip" arguments="{field: 'mode', value: '{f:translate(key: \'mode.{filters.mode}\')}'}" />
+            </f:if>
+            <f:if condition="{filters.kurstyp}">
+                <f:render partial="Filter/Chip" arguments="{field: 'kurstyp', value: '{f:translate(key: \'kurstyp.{filters.kurstyp}\')}'}" />
+            </f:if>
+            <f:if condition="{filters.trainer}">
+                <f:render partial="Filter/Chip" arguments="{field: 'trainer', value: filters.trainer}" />
+            </f:if>
+            <f:if condition="{filters.city}">
+                <f:render partial="Filter/Chip" arguments="{field: 'city', value: filters.city}" />
+            </f:if>
+            <f:if condition="{filters.plz}">
+                <f:render partial="Filter/Chip" arguments="{field: 'plz', value: filters.plz}" />
+            </f:if>
+            <f:if condition="{filters.from}">
+                <f:render partial="Filter/Chip" arguments="{field: 'from', value: '{filters.from -> f:format.date(format: \'d.m.Y\')}'}" />
+            </f:if>
+            <f:if condition="{filters.to}">
+                <f:render partial="Filter/Chip" arguments="{field: 'to', value: '{filters.to -> f:format.date(format: \'d.m.Y\')}'}" />
+            </f:if>
+            <f:if condition="{filters.topic}">
+                <f:render partial="Filter/Chip" arguments="{field: 'topic', value: filters.topic}" />
+            </f:if>
+            <f:if condition="{filters.termCount}">
+                <f:variable name="termCountLabel"><f:render partial="Course/TermCount" arguments="{count: filters.termCount}" /></f:variable>
+                <f:render partial="Filter/Chip" arguments="{field: 'termCount', value: '{termCountLabel -> f:spaceless()}'}" />
+            </f:if>
+            <f:if condition="{filters.free}">
+                <f:render partial="Filter/Chip" arguments="{field: 'free', value: '{f:translate(key: \'chip.free.value\')}'}" />
+            </f:if>
+        </f:if>
+    </div>
+</f:form>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:wlp_prospi/Resources/Private/Language/locallang_db.xlf" date="2026-11-09T00:00:00Z" product-name="wlp_prospi">
+		<header/>
+		<body>
+			<trans-unit id="plugin.list.title">
+				<source>WLP ProSPI: Course list</source>
+			</trans-unit>
+			<trans-unit id="plugin.list.description">
+				<source>Courses of the SPI Orientierungsplan with filters and registration link</source>
+			</trans-unit>
+			<trans-unit id="config.apiBaseUrl">
+				<source>API base URL (endpoint "trainercourses")</source>
+			</trans-unit>
+			<trans-unit id="config.cacheLifetime">
+				<source>Cache lifetime of the API response in seconds (0 = unlimited)</source>
+			</trans-unit>
+			<trans-unit id="config.timeout">
+				<source>Timeout of the API request in seconds</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

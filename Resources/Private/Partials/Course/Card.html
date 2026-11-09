@@ -1,0 +1,90 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:variable name="tagModifier">{f:if(condition: course.isClosedOrFull, then: ' prospi-tag--disabled')}</f:variable>
+<li class="prospi-card">
+    <h4 id="prospi-course-{index}" class="prospi-card__title">
+        <f:if condition="{course.trainer}"><f:then>{course.trainer}</f:then><f:else><f:translate key="card.fallbackTitle" /></f:else></f:if><f:if condition="{course.ort}"><f:then> – {course.ort}</f:then><f:else><f:if condition="{course.termine.0.ort}"> – {course.termine.0.ort}</f:if></f:else></f:if><f:if condition="{course.termine.0.termin}"><f:then> – <f:translate key="card.from" /> {course.termine.0.termin}</f:then><f:else><f:if condition="{course.von}"> – <f:translate key="card.from" /> {course.von}</f:if></f:else></f:if>
+    </h4>
+
+    <div class="prospi-card__badges">
+        <span class="prospi-tag{tagModifier}">
+            <f:if condition="{course.modeBadge}">
+                <f:then><f:translate key="mode.{course.modeBadge}" /></f:then>
+                <f:else><f:translate key="kurstyp.{course.kurstyp}" default="{f:translate(key: 'badge.course')}" /></f:else>
+            </f:if>
+        </span>
+        <f:if condition="{course.kurstyp} != 'CLOSED'">
+            <span class="prospi-tag prospi-tag--secondary{tagModifier}">
+                <f:translate key="badge.freeSlots" /> <f:render partial="Course/FreeSlots" arguments="{course: course}" />
+            </span>
+        </f:if>
+        <span class="prospi-tag prospi-tag--secondary{tagModifier}">
+            <f:variable name="termCount">{course.termine -> f:count()}</f:variable>
+            <f:if condition="{termCount}">
+                <f:then><f:render partial="Course/TermCount" arguments="{count: termCount}" /></f:then>
+                <f:else if="{course.termCount}"><f:render partial="Course/TermCount" arguments="{count: course.termCount}" /></f:else>
+                <f:else>–</f:else>
+            </f:if>
+        </span>
+    </div>
+
+    <dl class="prospi-card__meta">
+        <div class="prospi-card__meta-row">
+            <dt class="prospi-card__meta-label"><f:translate key="meta.trainer" /></dt>
+            <dd class="prospi-card__meta-value">{course.trainer}</dd>
+        </div>
+        <div class="prospi-card__meta-row">
+            <dt class="prospi-card__meta-label"><f:translate key="meta.dates" /></dt>
+            <dd class="prospi-card__meta-value">
+                <f:if condition="{course.termine}">
+                    <f:then>
+                        <f:for each="{course.termine}" as="termin" iteration="dateIterator">
+                            <span class="prospi-card__meta-item">{termin.termin}</span><f:if condition="!{dateIterator.isLast}"><span class="prospi-card__meta-sep">+</span></f:if>
+                        </f:for>
+                    </f:then>
+                    <f:else>
+                        <span class="prospi-card__meta-item">{course.von}<f:if condition="{course.bis}"> – {course.bis}</f:if></span>
+                    </f:else>
+                </f:if>
+            </dd>
+        </div>
+        <div class="prospi-card__meta-row">
+            <dt class="prospi-card__meta-label"><f:translate key="meta.format" /></dt>
+            <dd class="prospi-card__meta-value"><f:translate key="kurstyp.{course.kurstyp}" default="{course.kurstyp}" /></dd>
+        </div>
+        <div class="prospi-card__meta-row">
+            <dt class="prospi-card__meta-label"><f:translate key="meta.time" /></dt>
+            <dd class="prospi-card__meta-value">
+                <f:if condition="{course.termine}">
+                    <f:then>
+                        <f:for each="{course.termine}" as="termin" iteration="timeIterator">
+                            <f:if condition="{termin.uhrzeit}">
+                                <span class="prospi-card__meta-item">{termin.uhrzeit}</span><f:if condition="!{timeIterator.isLast}"><span class="prospi-card__meta-sep">+</span></f:if>
+                            </f:if>
+                        </f:for>
+                    </f:then>
+                    <f:else>-</f:else>
+                </f:if>
+            </dd>
+        </div>
+        <f:if condition="{course.plzDisplay}">
+            <div class="prospi-card__meta-row">
+                <dt class="prospi-card__meta-label"><f:translate key="meta.location" /></dt>
+                <dd class="prospi-card__meta-value"><span class="prospi-card__meta-item">{course.plzDisplay}</span></dd>
+            </div>
+        </f:if>
+    </dl>
+
+    <f:if condition="{course.bookingUrl} && !{course.isClosedOrFull} && {course.hasFutureFirstStartDate}">
+        <div class="prospi-card__footer">
+            <span id="prospi-booking-{index}" class="prospi-visually-hidden"><f:translate key="booking.for" /></span>
+            <a
+                class="prospi-button"
+                href="{course.bookingUrl}"
+                target="_blank"
+                rel="noopener"
+                aria-labelledby="prospi-booking-{index} prospi-course-{index}"
+            ><f:translate key="booking.label" /></a>
+        </div>
+    </f:if>
+</li>
+</html>
